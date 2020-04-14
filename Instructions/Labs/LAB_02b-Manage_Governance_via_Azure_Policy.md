@@ -35,7 +35,17 @@ In this task, you will create and assign a tag to an Azure resource group via th
 
 1. In the Azure portal, start a **PowerShell** session within the **Cloud Shell**.
 
-    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and click **Create storage**. 
+1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
+
+   - Subscription: the name of the target Azure subscription
+
+   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
+   
+   - Resource group: Use  resource group **StagiaireXXX-RG1**
+
+   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
+
+   - File share: a name of a new file share: **cloudshell**
 
 1. From the Cloud Shell pane, run the following to identify the name of the storage account used by Cloud Shell:
 
@@ -55,7 +65,7 @@ In this task, you will create and assign a tag to an Azure resource group via th
 
 1. On the resource group blade, click **Tags**.
 
-1. Create a tag with the following settings and save your change:
+1. Create a tag with the following settings and save your change (please, do not change or delete other Tags):
 
     | Setting | Value |
     | --- | --- |
@@ -90,10 +100,10 @@ In this task, you will assign the built-in *Require a tag and its value on resou
     | Setting | Value |
     | --- | --- |
     | Assignment name | **Require Role tag with Infra value**|
-    | Description | **Require Role tag with Infra value for all resources in the Cloud Shell resource group**|
+    | Description | **None**|
     | Policy enforcement | Enabled |
 
-    >**Note**: The **Assignment name** is automatically populated with the policy name you selected, but you can change it. You can also add an optional **Description**. **Assigned by** is automatically populated based on the user name creating the assignment. 
+    >**Note**: The **Assignment name** is automatically populated with the policy name you selected, but you can change it. You could also add an optional **Description**. **Assigned by** is automatically populated based on the user name creating the assignment. 
 
 1. Click **Next** and set **Parameters** to the following values:
 
@@ -123,6 +133,7 @@ In this task, you will assign the built-in *Require a tag and its value on resou
     | Setting | Value |
     | --- | --- |
     | Storage account name | any globally unique combination of between 3 and 24 lower case letters and digits, starting with a letter |
+    | Location | Same region as the Resource Group |
 
 1. Note that the validation failed. Click the link **Validation failed. Click here to view details** to display the **Errors** blade and identify the reason for the failure. 
 
@@ -138,7 +149,7 @@ In this task, we will use a different policy definition to remediate any non-com
 
 1. In the **Authoring** section, click **Assignments**. 
 
-1. In the list of assignments, right click the ellipsis icon in the row representing the **Require Role tag with Infra value** policy assignment and use the **Delete assignment** menu item to delete the assignment. 
+1. In the list of assignments, right click the ellipsis icon in the row representing the **Require Role tag with Infra value** (refresh may be needed) policy assignment and use the **Delete assignment** menu item to delete the assignment (please, do not delete any other policy in the lab environment). 
 
 1. Click **Assign policy** and specify the **Scope** by clicking the ellipsis button and selecting the following values:
 
