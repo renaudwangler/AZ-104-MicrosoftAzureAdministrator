@@ -40,7 +40,7 @@ In this task, you will create a virtual network with multiple subnets by using t
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you will be using in this lab |
-    | Resource Group | the name of a new resource group **az104-04-rg1** |
+    | Resource Group | **StagiaireXXX-RG1** |
     | Name | **az104-04-vnet1** |
     | Region | the name of any Azure region available in the subscription you will use in this lab |
     | IPv4 address space | **10.40.0.0/20** |
@@ -70,7 +70,17 @@ In this task, you will deploy Azure virtual machines into different subnets of t
 
 1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
 
-    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and click **Create storage**. 
+1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
+
+   - Subscription: the name of the target Azure subscription
+
+   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
+   
+   - Resource group: Use  resource group **StagiaireXXX-RG1**
+
+   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
+
+   - File share: a name of a new file share: **cloudshell**
 
 1. In the toolbar of the Cloud Shell pane, click the **Upload/Download files** icon, in the drop-down menu, click **Upload** and upload the files **\\Allfiles\\Labs\\04\\az104-04-vms-template.json** and **\\Allfiles\\Labs\\04\\az104-04-vms-parameters.json** into the Cloud Shell home directory.
 
