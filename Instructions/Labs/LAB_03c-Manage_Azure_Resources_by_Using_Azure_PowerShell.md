@@ -49,13 +49,11 @@ In this task, you will open a PowerShell session in Cloud Shell.
 
 In this task, you will create an Azure managed disk by using Azure PowerShell session within Cloud Shell
 
-   ```pwsh
-    $rgName = 'StagiaireXXX-RG1'
-    $location = (Get-AzResourceGroup -Name $rgName).Location
-   ```
 1. To create a new managed disk with the same characteristics as those you created in the previous labs of this module, run the following:
 
    ```pwsh
+   $rgName = 'StagiaireXXX-RG1'
+   $location = (Get-AzResourceGroup -Name $rgName).Location
    $diskConfig = New-AzDiskConfig `
     -Location $location `
     -CreateOption Empty `
