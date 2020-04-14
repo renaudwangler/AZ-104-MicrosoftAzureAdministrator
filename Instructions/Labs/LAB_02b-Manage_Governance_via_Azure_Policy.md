@@ -217,7 +217,7 @@ In this task, we will use a different policy definition to remediate any non-com
 
 1. In the portal, search for and select **Storage accounts**.
 
-1. In the list of storage accounts, select the storage account you created in the last task of this lab, click **Delete**, when prompted for the confirmation, in the **Confirm delete** type **yes** and click **Delete**. 
+1. In the list of storage accounts, select the storage account you created in the last task of this lab, click **Delete**, when prompted for the confirmation, in the **Confirm delete** type **yes** and click **Delete** (you may leave the *CloudSHell* storage account).
 
 #### Review
 
