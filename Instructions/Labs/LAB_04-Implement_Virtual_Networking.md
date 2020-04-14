@@ -89,7 +89,7 @@ In this task, you will deploy Azure virtual machines into different subnets of t
 1. From the Cloud Shell pane, run the following to deploy two virtual machines by using the template and parameter files you uploaded:
 
    ```pwsh
-   $rgName = 'az104-04-rg1'
+   $rgName = 'StagiaireXXX-RG1'
 
    New-AzResourceGroupDeployment `
       -ResourceGroupName $rgName `
@@ -109,9 +109,9 @@ In this task, you will configure static assignment of public and private IP addr
 
    >**Note**: Private and public IP addresses are actually assigned to the network interfaces, which, in turn are attached to Azure virtual machines, however, it is fairly common to refer to IP addresses assigned to Azure VMs instead.
 
-1. In the Azure portal, search for and select **Resource groups**, and, on the **Resource groups** blade, click **az104-04-rg1**.
+1. In the Azure portal, search for and select **Resource groups**, and, on the **Resource groups** blade, click **StagiaireXXX-RG1**.
 
-1. On the **az104-04-rg1** resource group blade, in the list of its resources, click **az104-04-vnet1**.
+1. On the **StagiaireXXX-RG1** resource group blade, in the list of its resources, click **az104-04-vnet1**.
 
 1. On the **az104-04-vnet1** virtual network blade, review the **Connected devices** section and verify that there are two network interfaces **az104-04-nic0** and **az104-04-nic1** attached to the virtual network.
 
@@ -123,7 +123,7 @@ In this task, you will configure static assignment of public and private IP addr
 
 1. On the **ipconfig1** blade, set **Assignment** to **Static**, leave the default value of **IP address** set to **10.40.0.4**.
 
-1. On the **ipconfig1** blade, in the **Public IP address settings** section, select **Associate** and then click **IP address - Configure required settings**. 
+1. On the **ipconfig1** blade, in the **Public IP address settings** section, select **Enabled** and then click **IP address - Configure required settings**. 
 
 1. On the **Choose public IP address blade**, click **+ Create new** and create a new public IP address with the following settings:
 
@@ -136,9 +136,9 @@ In this task, you will configure static assignment of public and private IP addr
 
 1. Navigate back to the **az104-04-vnet1** blade and repeat the previous six steps to change the IP address assignment of **ipconfig1** of **az104-04-nic1** to **Static** and associate **az104-04-nic1** with a new Standard SKU public IP address named **az104-04-pip1**.
 
-1. Navigate back to the **az104-04-rg1** resource group blade, in the list of its resources, click **az104-04-vm0**, and from the **az104-04-vm0** virtual machine blade, note the public IP address entry.
+1. Navigate back to the **StagiaireXXX-RG1** resource group blade, in the list of its resources, click **az104-04-vm0**, and from the **az104-04-vm0** virtual machine blade, note the public IP address entry.
 
-1. Navigate back to the **az104-04-rg1** resource group blade, in the list of its resources, click **az104-04-vm1**, and from the **az104-04-vm1** virtual machine blade, note the public IP address entry.
+1. Navigate back to the **aStagiaireXXX-RG1** resource group blade, in the list of its resources, click **az104-04-vm1**, and from the **az104-04-vm1** virtual machine blade, note the public IP address entry.
 
     >**Note**: You will need both IP addresses in the last task of this lab. 
 
@@ -147,7 +147,7 @@ In this task, you will configure static assignment of public and private IP addr
 
 In this task, you will configure network security groups in order to allow for restricted connectivity to Azure virtual machines.
 
-1. In the Azure portal, navigate back to the **az104-04-rg1** resource group blade, and in the list of its resources, click **az104-04-vm0**.
+1. In the Azure portal, navigate back to the **StagiaireXXX-RG1** resource group blade, and in the list of its resources, click **az104-04-vm0**.
 
 1. On the **az104-04-vm0** blade, click **Connect**, in the drop-down menu, click **RDP**, on the **Connect with RDP** blade, click **Download RDP File** and follow the prompts to start the Remote Desktop session.
 
@@ -162,9 +162,9 @@ In this task, you will configure network security groups in order to allow for r
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource Group | **az104-04-rg1** |
+    | Resource Group | **StagiaireXXX-RG1** |
     | Name | **az104-04-nsg01** |
-    | Region | the name of the Azure region where you deployed all other resources in this lab |
+    | Region | the same Azure region as the Resource Group |
 
     >**Note**: Wait for the deployment to complete. This should take about 2 minutes.
 
@@ -193,7 +193,7 @@ In this task, you will configure network security groups in order to allow for r
 
 1. Navigate back to the **az104-04-vm0** virtual machine blade.
 
-    >**Note**: Now verify that you can successfully to the target virtual machine and sign in by using the **Student** username and **Pa55w.rd1234** password.
+    >**Note**: Now verify that you can successfully connect to the target virtual machine and sign in by using the **Student** username and **Pa55w.rd1234** password.
 
 1. On the **az104-04-vm0** blade, click **Connect**, click **Connect**, in the drop-down menu, click **RDP**, on the **Connect with RDP** blade, click **Download RDP File** and follow the prompts to start the Remote Desktop session.
 
@@ -216,7 +216,7 @@ In this task, you will configure DNS name resolution within a virtual network by
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource Group | **az104-04-rg1** |
+    | Resource Group | **StagiaireXXX-RG1** |
     | Name | **contoso.org** |
 
     >**Note**: Wait for the private DNS zone to be created. This should take about 2 minutes.
@@ -231,12 +231,12 @@ In this task, you will configure DNS name resolution within a virtual network by
     | --- | --- |
     | Link name | **az104-04-vnet1-link** |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Virtual network | **az104-04-vnet1** |
+    | Virtual network | **az104-04-vnet1(StagiaireXXX-RG1)** |
     | Enable auto registration | enabled |
 
     >**Note:** Wait for the virtual network link to be created. This should take less than 1 minute.
 
-1. On the **contoso.org** private DNS zone blade, in the **Settings** section, click **Overview**
+1. On the **contoso.org** private DNS zone blade, click **Overview**
 
 1. Verify that the DNS records for **az104-04-vm0** and **az104-04-vm1** appear in the list of record sets as **Auto registered**.
 
@@ -262,14 +262,14 @@ In this task, you will configure external DNS name resolution by using Azure pub
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource Group | **az104-04-rg1** |
-    | Name | **contoso.org** |
+    | Resource Group | **StagiaireXXX-RG1** |
+    | Name | **contosoYYYY.org** where YYYY is a unique number|
 
     >**Note**: Wait for the DNS zone to be created. This should take about 2 minutes. 
 
-1. Click **Go to resource** to open the **contoso.org** DNS zone blade. 
+1. Click **Go to resource** to open the **contosoYYYY.org** DNS zone blade. 
 
-1. On the **contoso.org** DNS zone blade, click **+ Record set**.
+1. On the **contosoYYYY.org** DNS zone blade, click **+ Record set**.
 
 1. Add a record set with the following settings (leave others with their default values):
 
@@ -300,36 +300,20 @@ In this task, you will configure external DNS name resolution by using Azure pub
 1. From the Cloud Shell pane, run the following to test external name resolution of the **az104-04-vm0** DNS record set in the newly created DNS zone (replace the placeholder `[Name server 1]` with the name of **Name server 1** you noted earlier in this task):
 
    ```pwsh
-   nslookup az104-04-vm0.contoso.org [Name server 1]
+   nslookup az104-04-vm0.contosoYYYY.org [Name server 1]
    ```
 1. Verify that the output of the command includes the public IP address of **az104-04-vm0**.
 
 1. From the Cloud Shell pane, run the following to test external name resolution of the **az104-04-vm1** DNS record set in the the newly created DNS zone (replace the placeholder `[Name server 1]` with the name of **Name server 1** you noted earlier in this task):
 
    ```pwsh
-   nslookup az104-04-vm1.contoso.org [Name server 1]
+   nslookup az104-04-vm1.contosoYYYY.org [Name server 1]
    ```
 1. Verify that the output of the command includes the public IP address of **az104-04-vm1**.
 
 #### Clean up resources
 
    >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
-
-1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
-
-1. List all resource groups created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-04*'
-   ```
-
-1. Delete all resource groups you created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-04*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
 #### Review
 
