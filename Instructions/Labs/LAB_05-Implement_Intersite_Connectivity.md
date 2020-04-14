@@ -103,7 +103,7 @@ In this task, you will configure local and global peering between the virtual ne
     | Name of the peering from az104-05-vnet0 to remote virtual network | **az104-05-vnet0_to_az104-05-vnet1** |
     | Virtual network deployment model | **Resource manager** |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Virtual network | **az104-05-vnet1 (az104-05-rg1)** |
+    | Virtual network | **az104-05-vnet1 (StagiaireXXX-RG1)** |
     | Name of the peering from az104-05-vnet1 to az104-05-vnet0 | **az104-05-vnet1_to_az104-05-vnet0** |
     | Allow virtual network access from az104-05-vnet0 to az104-05-vnet1 | **Enabled** |
     | Allow virtual network access from az104-05-vnet1 to az104-05-vnet0 | **Enabled** |
@@ -122,7 +122,7 @@ In this task, you will configure local and global peering between the virtual ne
     | Name of the peering from az104-05-vnet0 to remote virtual network | **az104-05-vnet0_to_az104-05-vnet2** |
     | Virtual network deployment model | **Resource manager** |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Virtual network | **az104-05-vnet2 (az104-05-rg2)** |
+    | Virtual network | **az104-05-vnet2 (StagiaireXXX-RG2)** |
     | Name of the peering from az104-05-vnet2 to az104-05-vnet0 | **az104-05-vnet2_to_az104-05-vnet0** |
     | Allow virtual network access from az104-05-vnet0 to az104-05-vnet2 | **Enabled** |
     | Allow virtual network access from az104-05-vnet2 to az104-05-vnet0 | **Enabled** |
@@ -143,7 +143,7 @@ In this task, you will configure local and global peering between the virtual ne
     | Name of the peering from az104-05-vnet1 to remote virtual network | **az104-05-vnet1_to_az104-05-vnet2** |
     | Virtual network deployment model | **Resource manager** |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Virtual network | **az104-05-vnet2 (az104-05-rg2)** |
+    | Virtual network | **az104-05-vnet2 (StagiaireXXX-RG2)** |
     | Name of the peering from az104-05-vnet2 to az104-05-vnet1 | **az104-05-vnet2_to_az104-05-vnet1** |
     | Allow virtual network access from az104-05-vnet1 to az104-05-vnet2 | **Enabled** |
     | Allow virtual network access from az104-05-vnet2 to az104-05-vnet1 | **Enabled** |
@@ -211,22 +211,6 @@ In this task, you will test connectivity between virtual machines on the three v
 #### Clean up resources
 
    >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
-
-1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
-
-1. List all resource groups created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-05*'
-   ```
-
-1. Delete all resource groups you created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-05*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
 #### Review
 
