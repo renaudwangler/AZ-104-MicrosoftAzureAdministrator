@@ -29,60 +29,48 @@ In this task, you will deploy three virtual machines, each into a separate virtu
 
 1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
 
-    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and click **Create storage**. 
+1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
 
+   - Subscription: the name of the target Azure subscription
+
+   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
+   
+   - Resource group: Use  resource group **StagiaireXXX-RG1**
+
+   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
+
+   - File share: a name of a new file share: **cloudshell**
+   
 1. In the toolbar of the Cloud Shell pane, click the **Upload/Download files** icon, in the drop-down menu, click **Upload** and upload the files **\\Allfiles\\Labs\\05\\az104-05-vnetvm-template.json** and **\\Allfiles\\Labs\\05\\az104-05-vnetvm-parameters.json** into the Cloud Shell home directory.
 
-1. From the Cloud Shell pane, run the following to create the first resource group that will be hosting the first virtual network and the pair of virtual machines (replace the `[Azure_region_1]` placeholder with the name of an Azure region where you intend to deploy these Azure virtual machines):
-
-   ```pwsh
-   $location = '[Azure_region_1]'
-
-   $rgName = 'az104-05-rg0'
-
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
 1. From the Cloud Shell pane, run the following to create the first virtual network and deploy a virtual machine into it by using the template and parameter files you uploaded:
 
    ```pwsh
+   $rg1Name = 'StagiaireXXX-RG1'
    New-AzResourceGroupDeployment `
-      -ResourceGroupName $rgName `
+      -ResourceGroupName $rg1Name `
       -TemplateFile $HOME/az104-05-vnetvm-template.json `
       -TemplateParameterFile $HOME/az104-05-vnetvm-parameters.json `
       -nameSuffix 0 `
       -AsJob
    ```
-1. From the Cloud Shell pane, run the following to create the second resource group that will be hosting the second virtual network and the second virtual machine
-
-   ```pwsh
-   $rgName = 'az104-05-rg1'
-
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
 1. From the Cloud Shell pane, run the following to create the second virtual network and deploy a virtual machine into it by using the template and parameter files you uploaded:
 
    ```pwsh
    New-AzResourceGroupDeployment `
-      -ResourceGroupName $rgName `
+      -ResourceGroupName $rg1Name `
       -TemplateFile $HOME/az104-05-vnetvm-template.json `
       -TemplateParameterFile $HOME/az104-05-vnetvm-parameters.json `
       -nameSuffix 1 `
       -AsJob
    ```
-1. From the Cloud Shell pane, run the following to create the third resource group that will be hosting the third virtual network and the third virtual machine (replace the `[Azure_region_2]` placeholder with the name of another Azure region where you can deploy Azure virtual machines, different from the Azure region you used for the other two deployments):
 
-   ```pwsh
-   $location = '[Azure_region_2]'
-
-   $rgName = 'az104-05-rg2'
-
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
 1. From the Cloud Shell pane, run the following to create the third virtual network and deploy a virtual machine into it by using the template and parameter files you uploaded:
 
-   ```pwsh
+   ```pwsh   
+   $rg2Name = 'StagiaireXXX-RG2'
    New-AzResourceGroupDeployment `
-      -ResourceGroupName $rgName `
+      -ResourceGroupName $rg2Name `
       -TemplateFile $HOME/az104-05-vnetvm-template.json `
       -TemplateParameterFile $HOME/az104-05-vnetvm-parameters.json `
       -nameSuffix 2 `
@@ -90,7 +78,7 @@ In this task, you will deploy three virtual machines, each into a separate virtu
    ```
     >**Note**: Wait for the deployments to complete before proceeding to the next task. This should take about 2 minutes.
 
-    >**Note**: To verify the status of the deployments, you can examine the properties of the resource groups you created in this task.
+    >**Note**: To verify the status of the deployments, you can examine the overview of your resource groups.
 
 1. Close the Cloud Shell pane.
 
