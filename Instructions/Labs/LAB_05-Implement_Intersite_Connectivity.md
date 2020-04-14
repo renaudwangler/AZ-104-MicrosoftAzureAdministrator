@@ -78,7 +78,7 @@ In this task, you will deploy three virtual machines, each into a separate virtu
    ```
     >**Note**: Wait for the deployments to complete before proceeding to the next task. This should take about 2 minutes.
 
-    >**Note**: To verify the status of the deployments, you can examine the overview of your resource groups.
+    >**Note**: To verify the status of the deployments, you can examine the overview of your resource groups. Fell free to relaunch a deployment if the corresponding vm doesn't show up.
 
 1. Close the Cloud Shell pane.
 
