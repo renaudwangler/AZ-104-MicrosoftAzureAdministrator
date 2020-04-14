@@ -28,11 +28,11 @@ In this lab, you will:
 
 #### task1: create a test Azure AD tenant
 
-In this task, you will create a test Azure AD tenant via an Office 365 tenant (in our lab envrionment, you can't have administrative access to the Active Directory tenant. Using a test tenant will howerver let you test actions).
+In this task, you will create a test Azure AD tenant via an Office 365 tenant (in our lab envrionment, you can't have administrative access to the Active Directory tenant. Using a test tenant will however let you test actions).
 
 1. If you don't have an account without Microsoft Subscription, please crete one by using the Microsoft Outlook home page (https://outlook.live.com/owa/).
 
-1. Open a web browser page an navigate to the Office 365 E3 trail offer page (https://go.microsoft.com/fwlink/p/?LinkID=403802)
+1. Open a web browser page and navigate to the Office 365 E3 trial offer page (https://go.microsoft.com/fwlink/p/?LinkID=403802)
 
 1. Type your Microsoft (Outlook) account and click **Next**
 
@@ -46,7 +46,7 @@ In this task, you will create a test Azure AD tenant via an Office 365 tenant (i
 
 1. Type a worldwide unique *yourbusiness* name and writ down your UNIQUENAME.onmicrosoft.com domain name before clicking on **Check availability** and **Next**
 
-1. use *Admin* as name of your first admin and create a safe password before clicking on **Sign up**
+1. use *Admin* as the name of your first admin and create a safe password before clicking on **Sign up**
 
 1. Wait for the creation of your tenant and click on **Go to Setup**
 
@@ -73,7 +73,7 @@ In this task, you will create and configure Azure AD users.
 
 1. Navigate back to the **Users - All users** blade, and then click **+ New user**.
 
-1. Create a new user with the following settings (leave others with their defaults):
+1. Create a new user with the following settings (keep other settings at their default values):
 
     | Setting | Value |
     | --- | --- |
@@ -97,7 +97,7 @@ In this task, you will create and configure Azure AD users.
 
 1. Open an **InPrivate** browser window and sign in to the [Azure portal](https://portal.azure.com) using the newly created user account. When prompted to update the password, change the password for the user.
 
-    >**Note**: Rather than typing the user name, you can paste the content of Clipboard.
+    >**Note**: Rather than typing the username, you can paste the contents of the Clipboard.
 
 1. In the **InPrivate** browser window, in the Azure portal, search for and select **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ In this task, you will create and configure Azure AD users.
 
 1. In the **InPrivate** browser window, on the Azure AD blade, in the **Manage** section, click **Users**, and then click **+ New user**.
 
-1. Create a new user with the following settings (leave others with their defaults):
+1. Create a new user with the following settings (keep other settings at their default values):
 
     | Setting | Value |
     | --- | --- |
