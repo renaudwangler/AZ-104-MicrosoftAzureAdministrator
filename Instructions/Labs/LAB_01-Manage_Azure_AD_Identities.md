@@ -16,6 +16,7 @@ In order to allow Contoso users to authenticate by using Azure AD, you have been
 
 In this lab, you will:
 
++ Task 0 : create a test Azure AD tenant
 + Task 1: Create and configure Azure AD users
 + Task 2: Create Azure AD groups with assigned and dynamic membership
 + Task 3: Create an Azure Active Directory (AD) tenant
@@ -23,11 +24,42 @@ In this lab, you will:
 
 ## Instructions
 
+### Exercice 0
+
+#### task1: create a test Azure AD tenant
+
+In this task, you will create a test Azure AD tenant via an Office 365 tenant (in our lab envrionment, you can't have administrative access to the Active Directory tenant. Using a test tenant will howerver let you test actions).
+
+1. If you don't have an account without Microsoft Subscription, please crete one by using the Microsoft Outlook home page (https://outlook.live.com/owa/).
+
+1. Open a web browser page an navigate to the Office 365 E3 trail offer page (https://go.microsoft.com/fwlink/p/?LinkID=403802)
+
+1. Type your Microsoft (Outlook) account and click **Next**
+
+1. Click **Set up account**
+
+1. Enter your personnal informations (using any fictional *Company Name*) and click **Next**
+
+1. Use your real mobile phone number and click on **Send Verification Code**
+
+1. Enter the *Verification code* you received and click **Verify**
+
+1. Type a worldwide unique *yourbusiness* name and writ down your UNIQUENAME.onmicrosoft.com domain name before clicking on **Check availability** and **Next**
+
+1. use *Admin* as name of your first admin and create a safe password before clicking on **Sign up**
+
+1. Wait for the creation of your tenant and click on **Go to Setup**
+
+1. click on **Exit Setup** At the botom of the page : your test tenant is ready.
+
+
 ### Exercise 1
 
 #### Task 1: Create and configure Azure AD users
 
 In this task, you will create and configure Azure AD users.
+
+1. Open the Azure portal (https://portal.azure.com) in your browser.
 
 1. In the Azure portal, search for and select **Azure Active Directory**.
 
@@ -116,7 +148,7 @@ In this task, you will create Azure Active Directory groups with assigned and dy
     | Group description | **Contoso IT cloud administrators** |
     | Membership type | **Dynamic User** |
 
-    >**Note**: If the **Membership type** drop-down list is grayed out, refresh the browser page.
+    >**Note**: If the **Membership type** drop-down list is grayed out, refresh the browser page (this may take some time).
 
 1. Click **Add dynamic query**.
 
@@ -182,7 +214,7 @@ In this task, you will create a new Azure AD tenant.
     | --- | --- |
     | Directory type | **Azure Active Directory** |
     | Organization name | **Contoso Lab** |
-    | Initial domain name | any valid DNS name consisting of lower case letters and digits and starting with a letter | 
+    | Initial domain name | any valid    name consisting of lower case letters and digits and starting with a letter | 
     | Country/Region | **United States** |
 
    > **Note**: The green check mark in the **Initial domain name** text box will indicate that the domain name you typed in is valid and unique.
@@ -259,6 +291,7 @@ In this task, you will create Azure AD guest users and grant them access to reso
 
 In this lab, you have:
 
+- Created a test Azure AD Tenant
 - Created and configured Azure AD users
 - Created Azure AD groups with assigned and dynamic membership
 - Created an Azure Active Directory (AD) tenant
