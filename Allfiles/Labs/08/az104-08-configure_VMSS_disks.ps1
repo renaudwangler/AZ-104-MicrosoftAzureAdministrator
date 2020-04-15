@@ -1,4 +1,5 @@
-$rgName = 'az104-08-rg02'
+$stud=$(az ad signed-in-user show --query displayName)
+$rgName="$($stud.substring(1,$stud.length-2))-RG2"
 $vmssName = 'az10408vmss0'
 $vmss = Get-AzVmss `
 	-ResourceGroupName $rgName `
