@@ -36,12 +36,12 @@ In this task, you will deploy an Azure Kubernetes Services cluster by using the 
     | Setting | Value |
     | ---- | ---- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **az104-09c-rg1** |
+    | Resource group | **StagiaireXXX-RG1** |
     | Kubernetes cluster name | **az104-9c-aks1** |
-    | Region | the name of a region where you can provision a Kubernetes cluster |
+    | Region | the same region as Resource Group |
     | Kubernetes version | accept the default |
     | DNS name prefix | any valid, globally unique DNS host name |
-    | Node size | accept the default |
+    | Node size | **Standard DS1v2** |
     | Node count | **1** |
 
 1. Click **Next: Scale >** and, on the **Scale** tab of the **Create Kubernetes cluster** blade, specify the following settings (leave others with their default values):
@@ -88,12 +88,22 @@ In this task, you will deploy a pod into the Azure Kubernetes Service cluster.
 
 1. If prompted to select either **Bash** or **PowerShell**, select **Bash**. 
 
-    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and click **Create storage**. 
+1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
+
+   - Subscription: the name of the target Azure subscription
+
+   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
+   
+   - Resource group: Use  resource group **StagiaireXXX-RG1**
+
+   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
+
+   - File share: a name of a new file share: **cloudshell**
 
 1. From the Cloud Shell pane, run the following to retrieve the credentials to access the AKS cluster:
 
     ```sh
-    RESOURCE_GROUP='az104-09c-rg1'
+    RESOURCE_GROUP='StagiaireXXX-RG1'
 
     AKS_CLUSTER='az104-9c-aks1'
 
@@ -212,22 +222,6 @@ In this task, you will scale horizontally the number of pods and then number of 
 #### Clean up resources
 
    >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
-
-1. In the Azure portal, open the **Bash** shell session within the **Cloud Shell** pane.
-
-1. List all resource groups created throughout the labs of this module by running the following command:
-
-   ```sh
-   az group list --query "[?starts_with(name,'az104-09c')].name" --output tsv
-   ```
-
-1. Delete all resource groups you created throughout the labs of this module by running the following command:
-
-   ```sh
-   az group list --query "[?starts_with(name,'az104-09c')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
-   ```
-
-    >**Note**: The command executes asynchronously (as determined by the --nowait parameter), so while you will be able to run another Azure CLI command immediately afterwards within the same Bash session, it will take a few minutes before the resource groups are actually removed.
 
 #### Review
 
