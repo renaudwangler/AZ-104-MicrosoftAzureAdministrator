@@ -54,7 +54,7 @@ In this task, you will deploy four virtual machines into the same Azure region. 
 1. From the Cloud Shell pane, run the following to create the first virtual network and deploy a pair of virtual machines into it by using the template and parameter files you uploaded:
 
    ```pwsh
-   $rgName = 'Stagiaire020-RG1'
+   $rgName = 'Stagiaire020-RG2'
    New-AzResourceGroupDeployment `
       -Name az104-06-vms1 `
       -ResourceGroupName $rgName `
@@ -112,7 +112,7 @@ In this task, you will configure local peering between the virtual networks you 
     | Name of the peering from az104-06-vnet01 to remote virtual network | **az104-06-vnet01_to_az104-06-vnet2** |
     | Virtual network deployment model | **Resource manager** |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Virtual network | **az104-06-vnet2 (az104-06-rg2)** |
+    | Virtual network | **az104-06-vnet2 (StagiaireXXX-RG2)** |
     | Name of the peering from az104-06-vnet2 to az104-06-vnet01 | **az104-06-vnet2_to_az104-06-vnet01** |
     | Allow virtual network access from az104-06-vnet01 to az104-06-vnet2 | **Enabled** |
     | Allow virtual network access from az104-06-vnet2 to az104-06-vnet01 | **Enabled** |
@@ -135,7 +135,7 @@ In this task, you will configure local peering between the virtual networks you 
     | Name of the peering from az104-06-vnet01 to remote virtual network | **az104-06-vnet01_to_az104-06-vnet3** |
     | Virtual network deployment model | **Resource manager** |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Virtual network | **az104-06-vnet3 (az104-06-rg3)** |
+    | Virtual network | **az104-06-vnet3 (StagiaireXXX-RG2)** |
     | Name of the peering from az104-06-vnet3 to az104-06-vnet01 | **az104-06-vnet3_to_az104-06-vnet01** |
     | Allow virtual network access from az104-06-vnet01 to az104-06-vnet3 | **Enabled** |
     | Allow virtual network access from az104-06-vnet3 to az104-06-vnet01 | **Enabled** |
@@ -162,7 +162,7 @@ In this task, you will test transitivity of virtual network peering by using Net
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | **az104-06-rg1** |
+    | Resource group | **StagiaireXXX-RG2** |
     | Source type | **Virtual machine** |
     | Virtual machine | **az104-06-vm0** |
     | Destination | **Specify manually** |
@@ -183,7 +183,7 @@ In this task, you will test transitivity of virtual network peering by using Net
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | **az104-06-rg1** |
+    | Resource group | **StagiaireXXX-RG2** |
     | Source type | **Virtual machine** |
     | Virtual machine | **az104-06-vm0** |
     | Destination | **Specify manually** |
@@ -202,7 +202,7 @@ In this task, you will test transitivity of virtual network peering by using Net
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | **az104-06-rg2** |
+    | Resource group | **StagiaireXXX-RG2** |
     | Source type | **Virtual machine** |
     | Virtual machine | **az104-06-vm2** |
     | Destination | **Specify manually** |
@@ -224,7 +224,7 @@ In this task, you will configure and test routing between the two spoke virtual 
 
 1. On the **az104-06-vm0** virtual machine blade, in the **Settings** section, click **Networking**.
 
-1. Click the **az104-06-nic0** link next to the **Network interface** label, and then, on the **az104-06-nic0** network interface blade, in the **Settings** section, in the **Settings** section, click **IP configurations**. 
+1. Click the **az104-06-nic0** link next to the **Network interface** label, and then, on the **az104-06-nic0** network interface blade, in the **Settings** section, click **IP configurations**. 
 
 1. Set **IP forwarding** to **Enabled** and save the change. 
 
@@ -268,8 +268,8 @@ In this task, you will configure and test routing between the two spoke virtual 
     | --- | --- |
     | Name | **az104-06-rt23** |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | **az104-06-rg2** |
-    | Location | the name of the Azure region in which you created the virtual networks |
+    | Resource group | **StagiaireXXX-RG2** |
+    | Location | the same Azure region as Resource Group |
     | Virtual network gateway route propagation | **Disabled** |
 
    > **Note**: Wait for the route table to be created. This should take about 3 minutes.
@@ -304,8 +304,8 @@ In this task, you will configure and test routing between the two spoke virtual 
     | --- | --- |
     | Name | **az104-06-rt32** |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | **az104-06-rg3** |
-    | Location | the name of the Azure region in which you created the virtual networks |
+    | Resource group | **StagiaireXXX-RG2** |
+    | Location | the same Azure region as Resource Group |
     | Virtual network gateway route propagation | **Disabled** |
 
    > **Note**: Wait for the route table to be created. This should take about 3 minutes.
@@ -339,7 +339,7 @@ In this task, you will configure and test routing between the two spoke virtual 
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | **az104-06-rg2** |
+    | Resource group | **StagiaireXXX-RG2** |
     | Source type | **Virtual machine** |
     | Virtual machine | **az104-06-vm2** |
     | Destination | **Specify manually** |
@@ -364,14 +364,13 @@ In this task, you will implement an Azure Load Balancer in front of the two Azur
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **az104-06-rg4** |
+    | Resource group | the name of a new resource group **StagiaireXXX-RG2** |
     | Name | **az104-06-lb4** |
-    | Region| name of the Azure region into which you deployed all other resources in this lab |
+    | Region| same Azure region as Resource Group |
     | Type | **Public** |
     | SKU | **Standard** |
     | Public IP address | **Create new** |
     | Public IP address name | **az104-06-pip4** |
-    | Availability zone | **Zone-redundant** |
     | Add a public IPv6 address | **No** |
 
     > **Note**: Wait for the Azure load balancer to be provisioned. This should take about 2 minutes. 
@@ -441,7 +440,7 @@ In this task, you will implement an Azure Application Gateway in front of the tw
 
 1. On the **Virtual networks** blade, in the list of virtual networks, click **az104-06-vnet01**.
 
-1. On the  **az104-06-vnet01** virtual network blade, in the **Settings** section, click **Subnets**, and then click **+ Add**.
+1. On the  **az104-06-vnet01** virtual network blade, in the **Settings** section, click **Subnets**, and then click **+ Subnet**.
 
 1. Add a subnet with the following settings (leave others with their default values):
 
@@ -461,9 +460,9 @@ In this task, you will implement an Azure Application Gateway in front of the tw
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **az104-06-rg5** |
+    | Resource group | **StagiaireXXX-RG2** |
     | Application gateway name | **az104-06-appgw5** |
-    | Region | name of the Azure region into which you deployed all other resources in this lab |
+    | Region | Same Azure region as Resource Group |
     | Tier | **Standard V2** |
     | Enable autoscaling | **No** |
     | Scale units | **1** |
@@ -547,22 +546,6 @@ In this task, you will implement an Azure Application Gateway in front of the tw
 #### Clean up resources
 
    >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
-
-1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
-
-1. List all resource groups created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-06*'
-   ```
-
-1. Delete all resource groups you created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-06*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
 #### Review
 
