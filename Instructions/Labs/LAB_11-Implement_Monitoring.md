@@ -53,7 +53,7 @@ In this task, you will deploy a virtual machine that will be used to test monito
 1. From the Cloud Shell pane, run the following to create the first virtual network and deploy a virtual machine into it by using the template and parameter files you uploaded:
 
    ```pwsh
-  $rgName='StagiaireXXX-RG2'
+   $rgName='StagiaireXXX-RG2'
    New-AzResourceGroupDeployment `
       -Name az104-11-vm1 `
       -ResourceGroupName $rgName `
