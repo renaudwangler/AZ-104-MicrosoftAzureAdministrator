@@ -36,23 +36,26 @@ In this task, you will deploy an Azure virtual machine that you will use later i
 
 1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
 
-    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and click **Create storage**. 
+1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
+
+   - Subscription: the name of the target Azure subscription
+
+   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
+   
+   - Resource group: Use  resource group **StagiaireXXX-RG1**
+
+   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
+
+   - File share: a name of a new file share: **cloudshell**
 
 1. In the toolbar of the Cloud Shell pane, click the **Upload/Download files** icon, in the drop-down menu, click **Upload** and upload the files **\\Allfiles\\Module_07\\az104-07-vm-template.json** and **\\Allfiles\\Module_07\\az104-07-vm-parameters.json** into the Cloud Shell home directory.
 
-1. From the Cloud Shell pane, run the following to create the resource group that will be hosting the virtual machine (replace the `[Azure_region]` placeholder with the name of an Azure region where you intend to deploy the Azure virtual machine):
-
-   ```pwsh
-   $location = '[Azure_region]'
-
-   $rgName = 'az104-07-rg0'
-
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
 1. From the Cloud Shell pane, run the following to deploy thef virtual machine by using the uploaded template and parameter files:
 
    ```pwsh
+   $rgName = 'StagiaireXXX-RG1'
    New-AzResourceGroupDeployment `
+      -Name az104-07-vm1 `
       -ResourceGroupName $rgName `
       -TemplateFile $HOME/az104-07-vm-template.json `
       -TemplateParameterFile $HOME/az104-07-vm-parameters.json `
@@ -74,9 +77,9 @@ In this task, you will create and configure an Azure Storage account.
     | Setting | Value | 
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **az104-07-rg1** |
+    | Resource group | **StagiaireXXX-RG1** |
     | Storage account name | any globally unique name between 3 and 24 in length consisting of letters and digits |
-    | Location | the name of an Azure region where you can create an Azure Storage account  |
+    | Location | the same Azure region as Resource Group  |
     | Performance | **Standard** |
     | Account kind | **Storage (general purpose v1)** |
     | Replication | **Read-access geo-redundant storage (RA-GRS)** |
@@ -207,7 +210,7 @@ In this task, you will configure authentication and authorization for Azure Stor
 
 1. In the **Add a role assignment** section, click **Add**.
 
-1. On the **Add role administrator** blade, specify the following settings:
+1. On the **Add role assignment** blade, specify the following settings:
 
     | Setting | Value |
     | --- | --- |
@@ -298,22 +301,6 @@ In this task, you will configure network access for Azure Storage.
 #### Clean up resources
 
    >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
-
-1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
-
-1. List all resource groups created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-07*'
-   ```
-
-1. Delete all resource groups you created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-07*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
 #### Review
 
