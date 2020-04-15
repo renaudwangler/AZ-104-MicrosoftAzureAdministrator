@@ -39,14 +39,14 @@ In this task, you will deploy Azure virtual machines into different availability
     | Setting | Value | 
     | --- | --- |
     | Subscription | the name of the Azure subscription you will be using in this lab |
-    | Resource group | the name of a new resource group **az104-08-rg01** |
+    | Resource group |**StagiaireXXX-RG2** |
     | Virtual machine name | **az104-08-vm0** |
-    | Region | select one of the regions that support availability zones and where you can provision Azure virtual machines | 
+    | Region | The same AZure region as Resource Group | 
     | Availability options | **Availability zone** |
     | Availability zone | **1** |
     | Image | **Windows Server 2019 Datacenter** |
     | Azure Spot instance | **No** |
-    | Size | **Standard D2s v3** |
+    | Size | **Standard DS1 v2** |
     | Username | **Student** |
     | Password | **Pa55w.rd1234** |
     | Public inbound ports | **None** |
@@ -65,7 +65,7 @@ In this task, you will deploy Azure virtual machines into different availability
 
     | Setting | Value | 
     | --- | --- |
-    | Name | **az104-08-rg01-vnet** |
+    | Name | **az104-08-vnet1** |
     | Address range | **10.80.0.0/20** |
     | Subnet name | **subnet0** |
     | Subnet range | **10.80.0.0/24** |
@@ -99,7 +99,7 @@ In this task, you will deploy Azure virtual machines into different availability
 
     | Setting | Value | 
     | --- | --- |
-    | Resource group | **az104-08-rg01** |
+    | Resource group | **StagiaireXXX-RG2** |
     | Network Interface Name | **az104-08-vm1-nic1** |
     | Virtual Machine Name | **az104-08-vm1** |
     | Admin Username | **Student** |
