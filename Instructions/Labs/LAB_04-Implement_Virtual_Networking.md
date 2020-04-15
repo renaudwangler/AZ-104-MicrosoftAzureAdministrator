@@ -92,6 +92,7 @@ In this task, you will deploy Azure virtual machines into different subnets of t
    $rgName = 'StagiaireXXX-RG1'
 
    New-AzResourceGroupDeployment `
+      -Name az104-04-vms1 `
       -ResourceGroupName $rgName `
       -TemplateFile $HOME/az104-04-vms-template.json `
       -TemplateParameterFile $HOME/az104-04-vms-parameters.json
