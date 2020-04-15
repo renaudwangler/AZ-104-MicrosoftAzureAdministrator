@@ -36,26 +36,26 @@ In this task, you will deploy a virtual machine that will be used to test monito
 
 1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
 
-    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and click **Create storage**. 
+1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
+
+   - Subscription: the name of the target Azure subscription
+
+   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
+   
+   - Resource group: Use  resource group **StagiaireXXX-RG1**
+
+   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
+
+   - File share: a name of a new file share: **cloudshell**
 
 1. In the toolbar of the Cloud Shell pane, click the **Upload/Download files** icon, in the drop-down menu, click **Upload** and upload the files **\\Allfiles\\Labs\\11\\az104-11-vm-template.json** and **\\Allfiles\\Labs\\11\\az104-11-vm-parameters.json** into the Cloud Shell home directory.
-
-1. From the Cloud Shell pane, run the following to create the resource group that will be hosting the virtual machines (replace the `[Azure_region]` placeholder with the name of an Azure region where you intend to deploy Azure virtual machines):
-
-    >**Note**: Make sure to choose one of the regions listed as **Log Analytics Workspace Region** in the referenced in [Workspace mappings documentation](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)
-
-   ```pwsh
-   $location = '[Azure_region]'
-
-   $rgName = 'az104-11-rg0'
-
-   New-AzResourceGroup -Name $rgName -Location $location
-   ```
 
 1. From the Cloud Shell pane, run the following to create the first virtual network and deploy a virtual machine into it by using the template and parameter files you uploaded:
 
    ```pwsh
+  $rgName='StagiaireXXX-RG2'
    New-AzResourceGroupDeployment `
+      -Name az104-11-vm1 `
       -ResourceGroupName $rgName `
       -TemplateFile $HOME/az104-11-vm-template.json `
       -TemplateParameterFile $HOME/az104-11-vm-parameters.json `
@@ -72,15 +72,19 @@ In this task, you will create and configure an Azure Log Analytics workspace and
 
 1. In the Azure portal, search for and select **Log Analytics workspaces** and, on the **Log Analytics workspaces** blade, click **+ Add**.
 
-1. On the **Log Analytics workspace** blade, ensure that the **Create New** option is selected, specify the following settings, and click **OK**:
+1. On the **Create log Analytics workspace** blade, on the **Basics** tab, specify the following settings, and click **Next : Pricing tier >**:
 
     | Settings | Value |
     | --- | --- |
-    | Log Analytics Workspace | any unique name |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **az104-11-rg1** |
-    | Location | the name of the Azure region into which you deployed the virtual machine in the previous task |
-    | Pricing tier | **Pay-as-you-go** |
+    | Resource group | **StagiaireXXX-RG2** |
+    | Name | any unique name |
+    | Location | the same Azure region as the Resource Group |
+    
+1. on the **Pricing tier** tab, specify the following setting, and click **Review + Create**:
+    | Pricing tier | **Pay-as-you-go (Per GB 2018)** |
+    
+1. on the **Review + Create** tab, click "**Create**".
 
     >**Note**: Make sure that you specify the same region into which you deployed virtual machines in the previous task.
 
@@ -94,15 +98,39 @@ In this task, you will create and configure an Azure Log Analytics workspace and
     | --- | --- |
     | Name | any unique name |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | **az104-11-rg1** |
-    | Location | the name of the Azure region determined based on [Workspace mappings documentation](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings) |
-    | Create Azure Run As account | **Yes** |
+    | Resource group | **StagiaireXXX-RG2** |
+    | Location | the same Azure as teh Resource Group |
+    | Create Azure Run As account | **No** |
 
     >**Note**: Make sure that you specify the Azure region based on the [Workspace mappings documentation](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)
 
     >**Note**: Wait for the deployment to complete. The deployment might take about 3 minutes.
 
-1. On the **Add Automation Account** blade, click **Refresh** and then click the entry representing your newly created Automation account.
+1. On the **Automation Account** blade, click **Refresh** and then click the entry representing your newly created Automation account.
+
+1. On the **Automation Account* blade, in the **Shared Resources** section, click **Connections**.
+
+1. on the **New Connection** Blade, specify the following settings, and click **Create**:
+
+    | Settings | Value |
+    | --- | --- |
+    | Name | AzureRunAsConnection |
+    | Type | AZureServicePrincipal |
+    | ApplicationId | **9f26a5f6-876f-4f2f-a7e9-e98779651c1d** |
+    | TenantId | **53af4bcf-8c7f-4e73-bc2c-9bfb1af1709e**  |
+    | CertificateThumbprint | **67C664285D8CA41FF4B9AB2D839F1631E0347912** |
+    | SubscriptionId | **888d47d2-4f0c-49aa-98ed-1940028e0ef5** |
+    
+1. On the **Automation Account** blade, in the **Shared Resources** section, click **Certificates**
+
+1. on the **Add a certificate** Blade, specify the following settings, and click **Create**:
+
+    | Settings | Value |
+    | --- | --- |
+    | Name | AzureRunAsCertificate |
+    | upload a certificate file | **\\Allfiles\\Labs\\11\\azureRunAzCertificate.pfx**  |
+    | Password | **Pa55w.rd** |
+    | Exportable | **Yes**  |
 
 1. On the Automation account blade, in the **Configuration Management** section, click **Inventory**.
 
