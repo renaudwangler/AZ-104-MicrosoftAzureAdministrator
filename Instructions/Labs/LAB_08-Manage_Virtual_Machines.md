@@ -182,9 +182,9 @@ In this task you will scale compute for Azure virtual machines by changing their
 
 1. In the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, click **az104-08-vm0**.
 
-1. On the **az104-08-vm0** virtual machine blade, click **Size** and set the virtual machine size to **Standard DS1_v2**
+1. On the **az104-08-vm0** virtual machine blade, click **Size** and set the virtual machine size to **B1s**
 
-    >**Note**: Choose another size if **Standard DS1_v2** is not available.
+    >**Note**: Choose another size if **B1s** is not available.
 
 1. On the **az104-08-vm0** virtual machine blade, click **Disks**, click **+ Add data disk**, and, in the **Name** drop down list, click **Create disk**.
 
@@ -238,14 +238,14 @@ In this task you will scale compute for Azure virtual machines by changing their
 1. On the **Edit template** blade, in the section displaying the content of the template, replace the line **30** `                    "vmSize": "Standard_D2s_v3"` with the following line):
 
    ```json
-                    "vmSize": "Standard_DS1_v2"
+                    "vmSize": "Standard_B1s"
 
    ```
 
     >**Note**: This section of the template defines the same Azure virtual machine size as the one you specified for the first virtual machine via the Azure portal.
 
 
-1. On the **Edit template** blade, in the section displaying the content of the template, replace line **49** (`                    "dataDisks": [ ]` line) with the following code :
+1. On the **Edit template** blade, in the section displaying the content of the template, replace line **50** (`                    "dataDisks": [ ]` line) with the following code :
 
    ```json
                     "dataDisks": [
@@ -272,7 +272,7 @@ In this task you will scale compute for Azure virtual machines by changing their
 
     >**Note**: Disregard the message stating **The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group**. This is expected and can be ignored in this case.
 
-    >**Note**: Wait for the template deployment to complete. You can monitor its progress from the **Extensions** blade of the **az104-08-vm1** virtual machine. This should take no more than 3 minutes.
+    >**Note**: Wait for the template deployment to complete. You can monitor its progress from the **Disks** blade of the **az104-08-vm1** virtual machine. This should take no more than 3 minutes.
 
 1. Back on the **az104-08-vm1** blade, in the **Operations** section, click **Run command**, and, in the list of commands, click **RunPowerShellScript**.
 
@@ -300,13 +300,13 @@ In this task, you will deploy Azure virtual machine scale set across availabilit
     | Setting | Value | 
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |    
-    | Resource group | the name of a new resource group **az104-08-rg02** |    
+    | Resource group | **StagiaireXXX-RG2** |    
     | Virtual machine scale set name | **az10408vmss0** |
-    | Region | select one of the regions that support availability zones and where you can provision Azure virtual machines different from the one you used to deploy virtual machines earlier in this lab | 
+    | Region | The same AZure region as the Resource Group | 
     | Availability zone | **Zones 1, 2, 3** |
     | Image | **Windows Server 2016 Datacenter** |
     | Azure Spot instance | **No** |
-    | Size | **Standard D2s_v3** |    
+    | Size | **Standard DS1 v2** |    
     | Username | **Student** |
     | Password | **Pa55w.rd1234** |
     | Already have a Windows Server license? | **No** |
@@ -319,12 +319,12 @@ In this task, you will deploy Azure virtual machine scale set across availabilit
 
     | Setting | Value | 
     | --- | --- |
-    | Name | **az104-08-rg02-vnet** |
+    | Name | **az104-08-vnet2** |
     | Address range | **10.82.0.0/20** |
     | Subnet name | **subnet0** |
     | Subnet range | **10.82.0.0/24** |
  
-    >**Note**: Once you create a new virtual network and return to the **Networking** tab of the **Create a virtual machine scale set** blade, the **Virtual network** value will be automatically set to **az104-08-rg02-vnet**.
+    >**Note**: Once you create a new virtual network and return to the **Networking** tab of the **Create a virtual machine scale set** blade, the **Virtual network** value will be automatically set to **az104-08-vnet2**.
 
 1. Back on the **Networking** tab of the **Create a virtual machine scale set** blade, click the **Edit network interface** icon to the right of the network interface entry. 
 
@@ -421,7 +421,7 @@ In this task, you will change the size of virtual machine scale set instances, c
 
 1. In the Azure Portal, on the **az10408vmss0** blade, click **Size**.
 
-1. In the list of available sizes, select **Standard DS1_v2** and click **Resize**.
+1. In the list of available sizes, select **B1s** and click **Resize**.
 
 1. In the **Settings** section, click **Instances**, select the checkboxes next to the two instances of the virtual machine scale set, click **Upgrade**, and then, when prompted for confirmation, click **Yes**.
 
@@ -448,7 +448,7 @@ In this task, you will change the size of virtual machine scale set instances, c
     | Operator | **Greater than** |
     | Metric threshold to trigger scale action | **10** |
     | Duration (in minutes) | **1** |
-    | Time grain statistic | **Maximum** |
+    | Time grain statistic | **Sum** |
     | Operation | **Increase count by** |
     | Instance count | **1** |
     | Cool down (minutes) | **5** |
@@ -469,12 +469,22 @@ In this task, you will change the size of virtual machine scale set instances, c
 
 1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
 
-    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and click **Create storage**. 
+1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
+
+   - Subscription: the name of the target Azure subscription
+
+   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
+   
+   - Resource group: Use  resource group **StagiaireXXX-RG1**
+
+   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
+
+   - File share: a name of a new file share: **cloudshell**
 
 1. From the Cloud Shell pane, run the following to identify the public IP address of the load balancer in front of the Azure virtual machine scale set **az10408vmss0**.
 
    ```pwsh
-   $rgName = 'az104-08-rg02'
+   $rgName = 'StagiaireXXX-RG2'
 
    $lbpipName = 'az10408vmss0-ip'
 
@@ -490,7 +500,7 @@ In this task, you will change the size of virtual machine scale set instances, c
 
     >**Note**: You might need to wait a couple of minutes and click **Refresh**.
 
-1. Once the third instance is provisioned, navigate to its blade to determine its **Location** (it should be different than the first two zones you identified earlier in this task. 
+1. Once the third instance is provisioned, navigate to its blade to determine its **Location** (it should be different than the first two zones you identified earlier in this task). 
 
 1. Close Cloud Shell pane. 
 
@@ -533,7 +543,7 @@ In this task, you will change the size of virtual machine scale set instances, c
    ./az104-08-configure_VMSS_disks.ps1
    ```
 
-1. Close the Cloud Shell pane.
+1. Wait for the script to complete and lose the Cloud Shell pane.
 
 1. In the **Settings** section of the **az10408vmss0** blade, click **Instances**, select the checkboxes next to the two instances of the virtual machine scale set, click **Upgrade**, and then, when prompted for confirmation, click **Yes**.
 
@@ -541,21 +551,6 @@ In this task, you will change the size of virtual machine scale set instances, c
 
    >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
 
-1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
-
-1. List all resource groups created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-08*'
-   ```
-
-1. Delete all resource groups you created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-08*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
 
 #### Review
 
