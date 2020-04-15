@@ -48,6 +48,7 @@ In this task, you will deploy three virtual machines, each into a separate virtu
    ```pwsh
    $rg1Name = 'StagiaireXXX-RG1'
    New-AzResourceGroupDeployment `
+      -Name az104-05-vm1 `
       -ResourceGroupName $rg1Name `
       -TemplateFile $HOME/az104-05-vnetvm-template.json `
       -TemplateParameterFile $HOME/az104-05-vnetvm-parameters.json `
@@ -58,6 +59,7 @@ In this task, you will deploy three virtual machines, each into a separate virtu
 
    ```pwsh
    New-AzResourceGroupDeployment `
+      -Name az104-05-vm2 `
       -ResourceGroupName $rg1Name `
       -TemplateFile $HOME/az104-05-vnetvm-template.json `
       -TemplateParameterFile $HOME/az104-05-vnetvm-parameters.json `
@@ -70,6 +72,7 @@ In this task, you will deploy three virtual machines, each into a separate virtu
    ```pwsh   
    $rg2Name = 'StagiaireXXX-RG2'
    New-AzResourceGroupDeployment `
+      -Name az104-05-vm3 `
       -ResourceGroupName $rg2Name `
       -TemplateFile $HOME/az104-05-vnetvm-template.json `
       -TemplateParameterFile $HOME/az104-05-vnetvm-parameters.json `
