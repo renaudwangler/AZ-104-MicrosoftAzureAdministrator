@@ -94,7 +94,7 @@ In this task, you will managing configuration of the Azure managed disk by using
 
 #### Clean up resources
 
-1. Refer to the **Exercice 2** of the **Lab 00** to clean up your resources.
+1. Refer to **Exercice 2** of **Lab 00** to clean up your resources.
 
 #### Review
 
