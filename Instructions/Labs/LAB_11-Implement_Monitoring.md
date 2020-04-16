@@ -34,21 +34,7 @@ In this task, you will deploy a virtual machine that will be used to test monito
 
 1. In the Azure portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
 
-1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
-
-1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
-
-   - Subscription: the name of the target Azure subscription
-
-   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
-   
-   - Resource group: Use  resource group **StagiaireXXX-RG1**
-
-   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
-
-   - File share: a name of a new file share: **cloudshell**
-
-1. In the toolbar of the Cloud Shell pane, click the **Upload/Download files** icon, in the drop-down menu, click **Upload** and upload the files **\\Allfiles\\Labs\\11\\az104-11-vm-template.json** and **\\Allfiles\\Labs\\11\\az104-11-vm-parameters.json** into the Cloud Shell home directory.
+1. Refer to Exercice 1 in Lab 00 to create your Powershell environment.
 
 1. From the Cloud Shell pane, run the following to create the first virtual network and deploy a virtual machine into it by using the template and parameter files you uploaded:
 
@@ -57,8 +43,8 @@ In this task, you will deploy a virtual machine that will be used to test monito
    New-AzResourceGroupDeployment `
       -Name az104-11-vm1 `
       -ResourceGroupName $rgName `
-      -TemplateFile $HOME/az104-11-vm-template.json `
-      -TemplateParameterFile $HOME/az104-11-vm-parameters.json `
+      -TemplateFile $HOME/az-104/11/az104-11-vm-template.json `
+      -TemplateParameterFile $HOME/az-104/11/az104-11-vm-parameters.json `
       -AsJob
    ```
 
@@ -332,23 +318,7 @@ In this task, you will configure Azure virtual machine diagnostic settings.
 
 #### Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
-
-1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
-
-1. List all resource groups created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-11*'
-   ```
-
-1. Delete all resource groups you created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-11*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
+1. Refer to **Exercice 2** of **Lab 00** to clean up your resources.
 
 #### Review
 
