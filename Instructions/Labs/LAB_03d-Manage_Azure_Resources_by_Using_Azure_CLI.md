@@ -27,21 +27,7 @@ In this lab, you will:
 
 In this task, you will open a Bash session in Cloud Shell. 
 
-1. From the portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
-
-1. If prompted to select either **Bash** or **PowerShell**, select **Bash**. 
-
-1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
-
-   - Subscription: the name of the target Azure subscription
-
-   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
-   
-   - Resource group: Use  resource group **StagiaireXXX-RG1**
-
-   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
-
-   - File share: a name of a new file share: **cloudshell**
+1. Refer to the **Exercice 1** of the **Lab 00** to create you Powershell environment.
 
 1. Ensure **Bash** appears in the drop-down menu in the upper-left corner of the Cloud Shell pane.
 
@@ -100,7 +86,7 @@ In this task, you will managing configuration of the Azure managed disk by using
 
 #### Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+1. Refer to the **Exercice 2** of the **Lab 00** to clean up your resources.
 
 #### Review
 
