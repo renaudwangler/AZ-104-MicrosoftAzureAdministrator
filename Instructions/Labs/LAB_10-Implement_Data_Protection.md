@@ -414,7 +414,7 @@ In this task, you will restore a file from the Azure virtual machine-level snaps
 
 #### Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+1. Refer to **Exercice 2** of **Lab 00** to clean up your resources.
 
 #### Review
 
