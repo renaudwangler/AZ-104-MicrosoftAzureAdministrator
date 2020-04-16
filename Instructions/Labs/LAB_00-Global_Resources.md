@@ -28,8 +28,8 @@ In this task, you will create a storage account and map it to your Cloud Shell e
 1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
     | Setting | Value |
     | --- | --- |
-    | Subscription | the name of the target Azure subscription |
-    | Cloud Shell region | select the region from your **StagiaireXXX-RG1** resource group |
+    | Subscription | The name of the target Azure subscription |
+    | Cloud Shell region | Select the region from your **StagiaireXXX-RG1** resource group |
     | Resource group | Use  resource group **StagiaireXXX-RG1** |
     | Storage account | The name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits). |
     | File share | The name of a new file share: **cloudshell** |
