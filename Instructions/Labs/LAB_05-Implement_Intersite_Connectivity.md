@@ -25,23 +25,7 @@ In this task, you will deploy three virtual machines, each into a separate virtu
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the Azure portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
-
-1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
-
-1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
-
-   - Subscription: the name of the target Azure subscription
-
-   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
-   
-   - Resource group: Use  resource group **StagiaireXXX-RG1**
-
-   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
-
-   - File share: a name of a new file share: **cloudshell**
-   
-1. In the toolbar of the Cloud Shell pane, click the **Upload/Download files** icon, in the drop-down menu, click **Upload** and upload the files **\\Allfiles\\Labs\\05\\az104-05-vnetvm-template.json** and **\\Allfiles\\Labs\\05\\az104-05-vnetvm-parameters.json** into the Cloud Shell home directory.
+1. Refer to Exercice 1 in Lab 00 to create your Powershell environment.
 
 1. From the Cloud Shell pane, run the following to create the first virtual network and deploy a virtual machine into it by using the template and parameter files you uploaded:
 
@@ -50,8 +34,8 @@ In this task, you will deploy three virtual machines, each into a separate virtu
    New-AzResourceGroupDeployment `
       -Name az104-05-vm1 `
       -ResourceGroupName $rg1Name `
-      -TemplateFile $HOME/az104-05-vnetvm-template.json `
-      -TemplateParameterFile $HOME/az104-05-vnetvm-parameters.json `
+      -TemplateFile $HOME/az-104/05/az104-05-vnetvm-template.json `
+      -TemplateParameterFile $HOME/az-104/05/az104-05-vnetvm-parameters.json `
       -nameSuffix 0 `
       -AsJob
    ```
@@ -61,8 +45,8 @@ In this task, you will deploy three virtual machines, each into a separate virtu
    New-AzResourceGroupDeployment `
       -Name az104-05-vm2 `
       -ResourceGroupName $rg1Name `
-      -TemplateFile $HOME/az104-05-vnetvm-template.json `
-      -TemplateParameterFile $HOME/az104-05-vnetvm-parameters.json `
+      -TemplateFile $HOME/az-104/05/az104-05-vnetvm-template.json `
+      -TemplateParameterFile $HOME/az-104/05/az104-05-vnetvm-parameters.json `
       -nameSuffix 1 `
       -AsJob
    ```
@@ -74,8 +58,8 @@ In this task, you will deploy three virtual machines, each into a separate virtu
    New-AzResourceGroupDeployment `
       -Name az104-05-vm3 `
       -ResourceGroupName $rg2Name `
-      -TemplateFile $HOME/az104-05-vnetvm-template.json `
-      -TemplateParameterFile $HOME/az104-05-vnetvm-parameters.json `
+      -TemplateFile $HOME/az-104/05/az104-05-vnetvm-template.json `
+      -TemplateParameterFile $HOME/az-104/05/az104-05-vnetvm-parameters.json `
       -nameSuffix 2 `
       -AsJob
    ```
@@ -213,7 +197,7 @@ In this task, you will test connectivity between virtual machines on the three v
 
 #### Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
+1. Refer to **Exercice 2** of **Lab 00** to clean up your resources.
 
 #### Review
 
