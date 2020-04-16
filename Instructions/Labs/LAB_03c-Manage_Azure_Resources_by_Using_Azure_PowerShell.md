@@ -29,21 +29,24 @@ In this task, you will open a PowerShell session in Cloud Shell.
 
 1. In the portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
 
-1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
+1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**.
 
 1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
-
-   - Subscription: the name of the target Azure subscription
-
-   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
-   
-   - Resource group: Use resource group **StagiaireXXX-RG1**
-
-   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
-
-   - File share: a name of a new file share: **cloudshell**
+    | Setting | Value |
+    | --- | --- |
+    | Subscription | the name of the target Azure subscription |
+    | Cloud Shell region | select the region from you **StagiaireXXX-RG1** resource group |
+    | Resource group | Use  resource group **StagiaireXXX-RG1** |
+    | Storage account | a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits). |
+    | File share | a name of a new file share: **cloudshell** |
 
 1. Ensure **PowerShell** appears in the drop-down menu in the upper-left corner of the Cloud Shell pane.
+
+1. To copy the files you'll need in this lab, run the following:
+
+   ```pwsh
+   Get-AzStorageContainer -Context  (New-AzStorageContext -StorageAccountName "iblabcloudshell" -UseConnectedAccount)|Get-AzStorageBlob|Get-AzStorageBlobContent -Destination 'labs' -force
+   ```
 
 #### Task 2: Create an Azure managed disk by using Azure PowerShell
 
