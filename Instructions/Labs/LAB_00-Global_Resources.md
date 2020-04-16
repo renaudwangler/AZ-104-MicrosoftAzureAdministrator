@@ -17,7 +17,7 @@ In this lab, you will:
 
 ### Exercice 1
 
-#### task1: Configure your CloudShell environment
+#### Task 1: Configure your CloudShell environment
 
 In this task, you will create a storage account and map it to your Cloud Shell environment.
 
@@ -34,7 +34,7 @@ In this task, you will create a storage account and map it to your Cloud Shell e
     | Storage account | a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits). |
     | File share | a name of a new file share: **cloudshell** |
 
-#### task2: Copy the files you'll need for your labs
+#### Task 2: Copy the files you'll need for your labs
 
 In this task, you will copy the files needed by your lab in your CloudShell local storage.
 
@@ -49,7 +49,7 @@ In this task, you will copy the files needed by your lab in your CloudShell loca
 
 ### Exercice 2
 
-#### task1: Clean up resources
+#### Task 1: Clean up resources
 
    >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs.
    
