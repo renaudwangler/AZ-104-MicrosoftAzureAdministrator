@@ -11,9 +11,7 @@ Thi is not a real Lab. The content of this *Lab* may be used by other labs and/o
 In this lab, you will:
 
 + Task 1: Configure your CloudShell environment and gain access to your lab's files
-+ Task 2: Create Azure AD groups with assigned and dynamic membership
-+ Task 3: Create an Azure Active Directory (AD) tenant
-+ Task 4: Manage Azure AD guest users 
++ Task 2: Clean up your resources
 
 ## Instructions
 
@@ -49,3 +47,7 @@ In this task, you will copy the files needed by your lab in your CloudShell loca
    ```
 
    >**Note**: rerun the previous command if you see any error !
+
+### Exercice 2
+
+#### task1: Configure your CloudShell environment
