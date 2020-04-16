@@ -467,19 +467,7 @@ In this task, you will change the size of virtual machine scale set instances, c
 
 1. In the Azure portal, open the **Azure Cloud Shell** by clicking on the icon in the top right of the Azure Portal.
 
-1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
-
-1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
-
-   - Subscription: the name of the target Azure subscription
-
-   - Cloud Shell region: select the region from you **StagiaireXXX-RG1** resource group
-   
-   - Resource group: Use  resource group **StagiaireXXX-RG1**
-
-   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
-
-   - File share: a name of a new file share: **cloudshell**
+1. Refer to Exercice 1 in Lab 00 to create your Powershell environment.
 
 1. From the Cloud Shell pane, run the following to identify the public IP address of the load balancer in front of the Azure virtual machine scale set **az10408vmss0**.
 
@@ -525,14 +513,12 @@ In this task, you will change the size of virtual machine scale set instances, c
 
 1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
 
-1. In the toolbar of the Cloud Shell pane, click the **Upload/Download files** icon, in the drop-down menu, click **Upload** and upload the file **\\Allfiles\\Labs\\08\\az104-08-configure_VMSS_disks.ps1** into the Cloud Shell home directory.
-
 1. From the Cloud Shell pane, run the following to display the content of the script:
 
    ```pwsh
    Set-Location -Path $HOME
 
-   Get-Content -Path ./az104-08-configure_VMSS_disks.ps1
+   Get-Content -Path ./az-104/08/az104-08-configure_VMSS_disks.ps1
    ```
 
     >**Note**: The script installs a custom script extension that configures the attached disk.
@@ -540,17 +526,16 @@ In this task, you will change the size of virtual machine scale set instances, c
 1. From the Cloud Shell pane, run the following to excecute the script and configure disks of Azure virtual machine scale set:
 
    ```pwsh
-   ./az104-08-configure_VMSS_disks.ps1
+   ./az-104/08/az104-08-configure_VMSS_disks.ps1
    ```
 
-1. Wait for the script to complete and lose the Cloud Shell pane.
+1. Wait for the script to complete and close the Cloud Shell pane.
 
 1. In the **Settings** section of the **az10408vmss0** blade, click **Instances**, select the checkboxes next to the two instances of the virtual machine scale set, click **Upgrade**, and then, when prompted for confirmation, click **Yes**.
 
 #### Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
-
+1. Refer to **Exercice 2** of **Lab 00** to clean up your resources.
 
 #### Review
 
