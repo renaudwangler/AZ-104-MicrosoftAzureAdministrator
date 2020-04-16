@@ -4,13 +4,13 @@
 
 ## Lab scenario
 
-Thi is not a real Lab. The content of this *Lab* may be used by other labs and/or by your trainer to ease up some repetitive actions, give you some tricks or avoid some traps.
+This is not a real Lab. The content of this *Lab* may be used by other labs and/or by your trainer to provide useful tips, help with some repetitive actions or avoid pitfalls.
 
 ## Objectives
 
 In this lab, you will:
 
-+ Task 1: Configure your CloudShell environment and gain access to your lab's files
++ Task 1: Configure your CloudShell environment and gain access to your lab files
 + Task 2: Clean up your resources
 
 ## Instructions
@@ -38,7 +38,7 @@ In this task, you will create a storage account and map it to your Cloud Shell e
 
 In this task, you will copy the files needed by your lab in your CloudShell local storage.
 
-1. Ensure **PowerShell** appears in the drop-down menu in the upper-left corner of the Cloud Shell pane.
+1. Ensure **PowerShell** is selectd  in the drop-down menu in the upper-left corner of the Cloud Shell pane.
 
 1. To copy the files you'll need in this lab, run the following:
 
@@ -53,4 +53,4 @@ In this task, you will copy the files needed by your lab in your CloudShell loca
 
    >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs.
    
-   >**Note**: If you have provisionned a storage account for your Cloud Shell, you may keep it. If you delete it, please refer to the **Exercice 0** of the current **Lab 00** to recreate it and copy again the files you may need.
+   >**Note**: If you have provisionned a storage account for your Cloud Shell, you may keep it. If you delete it, please refer to the **Exercice 0** of this lab (**Lab 00**) to recreate it and retrieve any files you may need.
