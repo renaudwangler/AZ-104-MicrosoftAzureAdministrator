@@ -43,7 +43,8 @@ In this task, you will copy the files needed by your lab in your CloudShell loca
 1. To copy the files you'll need in this lab, run the following:
 
    ```pwsh
-   Get-AzStorageBlob -Container 'az-104' -Context (New-AzStorageContext -StorageAccountName "iblab" -UseConnectedAccount)|Get-AzStorageBlobContent -Destination 'labs' -force
+   azcopy login --identity
+   azcopy copy 'https://iblab.blob.core.windows.net/az-104' . --recursive
    ```
 
    >**Note**: rerun the previous command if you see any error !
