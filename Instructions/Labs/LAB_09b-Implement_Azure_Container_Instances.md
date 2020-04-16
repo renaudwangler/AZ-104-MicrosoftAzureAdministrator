@@ -35,9 +35,9 @@ In this task, you will create a new container instance for the web application.
     | Setting | Value |
     | ---- | ---- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of a new resource group **az104-09b-rg1** |
+    | Resource group | **StagiaireXXX-RG1** |
     | Container name | **az104-9b-c1** |
-    | Region | the name of a region where you can provision Azure container instances |
+    | Region | the same region as Resource Group |
     | Image Source | **Quickstart images** |
     | Image | **microsoft/aci-helloworld (Linux)** |
 
@@ -73,23 +73,7 @@ In this task, you will review the deployment of the container instance.
 
 #### Clean up resources
 
-   >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not see unexpected charges.
-
-1. In the Azure portal, open the **PowerShell** session within the **Cloud Shell** pane.
-
-1. List all resource groups created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-09b*'
-   ```
-
-1. Delete all resource groups you created throughout the labs of this module by running the following command:
-
-   ```pwsh
-   Get-AzResourceGroup -Name 'az104-09b*' | Remove-AzResourceGroup -Force -AsJob
-   ```
-
-    >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
+1. Refer to **Exercice 2** of **Lab 00** to clean up your resources.
 
 #### Review
 
