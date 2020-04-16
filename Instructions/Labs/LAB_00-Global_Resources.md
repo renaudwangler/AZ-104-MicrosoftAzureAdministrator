@@ -53,4 +53,4 @@ In this task, you will copy the files needed by your lab in your CloudShell loca
 
    >**Note**: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs.
    
-   >**Note**: If you ahev provisionned a storage account for your Cloud Shell, you may keep it. If you delete it, please refer to the **Exercice 0** of the current **Lab 00** to recreate it and copy again the files you may need.
+   >**Note**: If you have provisionned a storage account for your Cloud Shell, you may keep it. If you delete it, please refer to the **Exercice 0** of the current **Lab 00** to recreate it and copy again the files you may need.
