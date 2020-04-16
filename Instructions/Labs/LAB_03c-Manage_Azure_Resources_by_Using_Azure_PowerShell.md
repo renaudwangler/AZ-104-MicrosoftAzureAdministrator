@@ -27,7 +27,7 @@ In this lab, you will:
 
 In this task, you will open a PowerShell session in Cloud Shell. 
 
-1. Refer to the **Exercice 1** of the **Lab 00** to create you Powershell environment.
+1. Refer to **Exercice 1** in **Lab 00** to create your Powershell environment.
 
 #### Task 2: Create an Azure managed disk by using Azure PowerShell
 
