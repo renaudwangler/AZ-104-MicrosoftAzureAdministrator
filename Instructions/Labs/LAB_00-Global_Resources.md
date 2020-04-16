@@ -47,8 +47,6 @@ In this task, you will copy the files needed by your lab in your CloudShell loca
    azcopy copy 'https://iblab.blob.core.windows.net/az-104' . --recursive
    ```
 
-   >**Note**: rerun the previous command if you see any error !
-
 ### Exercice 2
 
 #### task1: Clean up resources
