@@ -51,7 +51,7 @@ In this task, you will copy the files needed by your lab in your CloudShell loca
 
 #### Task 1: Clean up resources
 
-In this task, you will delete the resources you used during any previous Lab : Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs.
+In this task, you will delete the resources you used during any previous Lab: Remember to remove any newly created Azure resources that you no longer use. Removing unused resources ensures you will not incur unexpected costs.
 
 1. In the Azure portal, search for and select **Resourcegroups** and, on the **Resource groups** blade, select **StagiaireXXX-RG1**
 
@@ -61,10 +61,10 @@ In this task, you will delete the resources you used during any previous Lab : R
    
 1. On the action bar, click **Delete**
 
-1. On the **Delte Resources** blade, type "**Yes**" in the **Confirm delete** text box and click **Delete**.
+1. On the **Delete Resources** blade, type "**Yes**" in the **Confirm delete** text box and click **Delete**.
 
-1. Don't wait for the deleteion of resources to complete : repeat previous steps for your **StagiaireXXX-RG2** Resource group whenever you created resources in it.
+1. Don't wait for the operation to finish : repeat the previous steps for your **StagiaireXXX-RG2** Resource group if you created resources in it.
 
-   >**Note**: Deletion of your resources is a slow process. If the task ends by a failure in the notification, relauch it or call your instructor for help.
+   >**Note**: Deleting your resources is a slow process. **Do not close the Azure Portal until all resources are deleted.** If the task ends with a failure message in the notification area, relaunch it or call your instructor for help.
    
    >**Note**: If you have provisionned a storage account for your Cloud Shell, you may keep it. If you delete it, please refer to the **Exercice 0** of this lab (**Lab 00**) to recreate it and retrieve any files you may need.
