@@ -29,10 +29,10 @@ In this task, you will create a storage account and map it to your Cloud Shell e
     | Setting | Value |
     | --- | --- |
     | Subscription | the name of the target Azure subscription |
-    | Cloud Shell region | select the region from you **StagiaireXXX-RG1** resource group |
+    | Cloud Shell region | select the region from your **StagiaireXXX-RG1** resource group |
     | Resource group | Use  resource group **StagiaireXXX-RG1** |
-    | Storage account | a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits). |
-    | File share | a name of a new file share: **cloudshell** |
+    | Storage account | The name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits). |
+    | File share | The name of a new file share: **cloudshell** |
 
 #### Task 2: Copy the files you'll need for your labs
 
