@@ -45,8 +45,10 @@ In this task, you will open a PowerShell session in Cloud Shell.
 1. To copy the files you'll need in this lab, run the following:
 
    ```pwsh
-   Get-AzStorageContainer -Context  (New-AzStorageContext -StorageAccountName "iblabcloudshell" -UseConnectedAccount)|Get-AzStorageBlob|Get-AzStorageBlobContent -Destination 'labs' -force
+   Get-AzStorageBlob -Container 'az-104' -Context (New-AzStorageContext -StorageAccountName "iblab" -UseConnectedAccount)|Get-AzStorageBlobContent -Destination 'labs' -force
    ```
+
+   >**Note**: rerun the previous command if you see any error !
 
 #### Task 2: Create an Azure managed disk by using Azure PowerShell
 
