@@ -36,7 +36,7 @@ In this task, you will create a storage account and map it to your Cloud Shell e
 
 #### Task 2: Copy the files you'll need for your labs
 
-In this task, you will copy the files needed by your lab in your CloudShell local storage.
+In this task, you will copy the files needed by your lab in your CloudShell local storage and in your local computer.
 
 1. Ensure **PowerShell** is selectd  in the drop-down menu in the upper-left corner of the Cloud Shell pane.
 
@@ -46,6 +46,7 @@ In this task, you will copy the files needed by your lab in your CloudShell loca
    azcopy login --identity
    azcopy copy 'https://iblab.blob.core.windows.net/az-104' . --recursive
    ```
+1. to copy a zip file containing all the files you'll need during your labs, [please click here](https://github.com/renaudwangler/AZ-104-MicrosoftAzureAdministrator/raw/master/allfiles.zip)
 
 ### Exercice 2
 
